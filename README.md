@@ -1,3 +1,6 @@
+> These updates are only for AWS re:Invent 2026. Do not merge this branch into the default branch.
+> Contact Ian Douglas or Tomas Josovsky with questions.
+
 # temporal-serverless-no-roads
 
 > *Where we're going, we don't NEED workers!*

@@ -5,6 +5,7 @@ import (
 	"io/fs"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"go.temporal.io/sdk/client"
@@ -58,7 +59,10 @@ func main() {
 	mux.Handle("/", http.FileServer(http.FS(stripped)))
 
 	// --- Start server ---
-	addr := ":8080"
+	addr := os.Getenv("HTTP_ADDRESS")
+	if addr == "" {
+		addr = ":8080"
+	}
 	log.Printf("demo-app listening on %s", addr)
 	if err := http.ListenAndServe(addr, mux); err != nil {
 		log.Fatalf("server error: %v", err)
